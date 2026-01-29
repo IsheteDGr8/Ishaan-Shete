@@ -41,9 +41,9 @@ header {
 .logo i {
   height: 45px;
   width: 45px;
-  background-color: #3ad4d7;
+  background-color: #061a8084;
   border-radius: 50%;
-  color: #222;
+  color: #c4bf5a;
   font-weight: 700;
   font-size: 1.5rem;
   padding: 10px;
@@ -55,7 +55,7 @@ header {
 .logo .logo-text {
   font-size: 24px;
   font-weight: 500;
-  color: #222;
+  color: #c4bf5a;
 }
 
 nav .togglebtn {
@@ -71,7 +71,7 @@ nav .togglebtn {
 
 nav .togglebtn span {
   display: block;
-  background-color: #3ad4d7;
+  background-color: #061a8084;
   width: 22px;
   height: 3px;
   margin: 5px auto;
