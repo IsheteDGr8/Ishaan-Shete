@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact — Ishaan Shete</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="logo">
+          <i class="fa-solid fa-i"></i>
+          <div class="logo-text">Ishaan Shete</div>
+        </div>
+        <nav>
+          <div class="togglebtn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="navlinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html" aria-current="page">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+    <main class="wrapper">
+      <h1>Contact</h1>
+
+      <!-- Formspree example (replace FORM_ID with your form endpoint) -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label for="name">Full Name</label>
+        <input id="name" name="name" required />
+
+        <label for="email">Email/Phone no.</label>
+        <input id="email" name="email" type="email" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+
+        <button type="submit" class="btn">Send</button>
+      </form>
+
+      <p>
+        Or email directly:
+        <a href="mailto:ishaanbshete@gmail.com">ishaanbshete@gmail.com</a>
+      </p>
+    </main>
+    
+    <footer>
+      <p>&copy; 2025 Ishaan Shete</p>
+    </footer>
+  </body>
+</html>
