@@ -14,7 +14,8 @@ body {
   height: 100%;
   width: 100%;
   min-height: 100vh;
-  background: #dcd9d9;
+  background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #faf3ac 0%, #ebcc5188 2%, #D1B464 15%, #5d4a1f 62.5%, #5d4a1f 100%);
 }
 
 .wrapper {
@@ -41,9 +42,9 @@ header {
 .logo i {
   height: 45px;
   width: 45px;
-  background-color: #061a8084;
+  background-color: #051463f7;
   border-radius: 50%;
-  color: #c4bf5a;
+  color: #e1c245;
   font-weight: 700;
   font-size: 1.5rem;
   padding: 10px;
@@ -55,7 +56,7 @@ header {
 .logo .logo-text {
   font-size: 24px;
   font-weight: 500;
-  color: #c4bf5a;
+  color: #051463f7;
 }
 
 nav .togglebtn {
@@ -71,7 +72,7 @@ nav .togglebtn {
 
 nav .togglebtn span {
   display: block;
-  background-color: #061a8084;
+  background-color: #051463f7;
   width: 22px;
   height: 3px;
   margin: 5px auto;
@@ -109,7 +110,7 @@ nav .navlinks li a:hover {
   height: 300px;
   border-radius: 50%;
   overflow: hidden;
-  border: 15px solid #444;
+  border: 15px solid #051463f7;
   box-shadow: 5px 7px 25px rgba(0, 0, 0, 0.5);
 }
 
@@ -135,12 +136,12 @@ nav .navlinks li a:hover {
 }
 
 .hero-text h5 span {
-  color: #3ad4d7;
+  color: #051463f7;
   font-size: 16px;
 }
 
 .hero-text h1 {
-  color: #3ad4d7;
+  color: #051463f7;
   font-size: 3rem;
 }
 
@@ -154,8 +155,9 @@ nav .navlinks li a:hover {
 
 .btn-group .btn {
   border-color: #fff;
-  color: #222;
-  background-color: #dcd9d9;
+  color: #051463f7;
+  background-color: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
   padding: 12px 25px;
   margin: 5px 0;
   margin-right: 7px;
@@ -165,11 +167,13 @@ nav .navlinks li a:hover {
 }
 
 .btn-group .btn:hover {
-  background-color: #fff;
+  background-color: #051463f7;
+  border-color: #e1c245;
+  color: #e1c245;
 }
 
 .btn.active {
-  border-color: #3ad4d7;
+  border-color: #051463f7;
 }
 
 .hero-text .social {
@@ -193,25 +197,21 @@ nav .navlinks li a:hover {
   font-size: 18px;
   transition: transform 0.5s ease, color 0.25s ease;
 }
-.hero-text .social a:hover {
-  background: rgba(0, 0, 0, 0.08);
-}
-
 .hero-text .social a:hover i {
   transform: rotate(360deg);
-  color: #3ad4d7;
+  color: #051463f7;
 }
 .hero-text .social a:hover i.fa-linkedin {
-  color: #0a66c2;
+  color: #063f79;
 }
 .hero-text .social a:hover i.fa-github {
   color: #171515;
 }
-.hero-text .social a:hover i.fa-gmail {
-  color: #d14836;
+.hero-text .social a:hover i.fa-envelope {
+  color: #7d1507;
 }
 .hero-text .social a:hover i.fa-phone {
-  color: #25d366;
+  color: #157639;
 }
 
 .portfolio-grid {
@@ -265,7 +265,7 @@ nav .navlinks li a:hover {
     bottom: 0;
     width: 60%;
     height: 100vh;
-    background-color: #dcd9d9;
+    background-color: #ddd766;
     z-index: 3;
     box-shadow: 5px 13px 30px rgba(0, 0, 0, 0.1);
     transition: 0.5s;
