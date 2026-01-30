@@ -86,52 +86,6 @@ header {
   color: var(--gold-gradient);
 }
 
-nav .togglebtn {
-  width: 35px;
-  height: 35px;
-  position: absolute;
-  top: 45px;
-  right: 3%;
-  z-index: 5;
-  cursor: pointer;
-  display: none;
-}
-
-nav .togglebtn span {
-  display: block;
-  background: var(--gold-gradient);
-  background-size: 200% 100%;
-  width: 22px;
-  height: 3px;
-  margin: 5px auto;
-  border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.2s ease, background-position 0.3s ease;
-  position: relative;
-}
-
-nav .navlinks {
-  list-style-type: none;
-}
-
-nav .navlinks li {
-    display: inline-block;
-}
-
-nav .navlinks li a {
-  margin-right: 2.5rem;
-  /* gold gradient text for desktop nav links with solid fallback */
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--gold-solid); /* fallback for older browsers */
-  font-weight: 600;
-}
-
-nav .navlinks li a:hover {
-    font-style: underline;
-}
-
 .container {
   display: flex;
   justify-content: space-around;
@@ -274,6 +228,9 @@ nav .navlinks li a:hover {
 .hero-text .social a:hover i.fa-github {
   color: #171515;
 }
+.hero-text .social a:hover i.fa-gmail {
+  color: #7d1507;
+}
 .hero-text .social a:hover i.fa-phone {
   color: #157639;
 }
@@ -298,6 +255,52 @@ nav .navlinks li a:hover {
 }
 
 @media (max-width: 930px) {
+  nav .togglebtn {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 45px;
+    right: 3%;
+    z-index: 5;
+    cursor: pointer;
+    display: none;
+  }
+
+  nav .togglebtn span {
+    display: block;
+    background: var(--gold-gradient);
+    background-size: 200% 100%;
+    width: 22px;
+    height: 3px;
+    margin: 5px auto;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease, background-position 0.3s ease;
+    position: relative;
+  }
+
+  nav .navlinks {
+    list-style-type: none;
+  }
+
+  nav .navlinks li {
+      display: inline-block;
+  }
+
+  nav .navlinks li a {
+    margin-right: 2.5rem;
+    /* gold gradient text for desktop nav links with solid fallback */
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--gold-solid); /* fallback for older browsers */
+    font-weight: 600;
+  }
+
+  nav .navlinks li a:hover {
+      font-style: underline;
+  }
+
   nav .togglebtn {
     display: initial;
   }
@@ -348,9 +351,6 @@ nav .navlinks li a:hover {
     align-items: flex-start; /* start content at left */
     justify-content: flex-start; /* start content at top */
     gap: 2.25rem; /* spacing between links */
-    /* smooth rounded outer shape */
-    border-top-left-radius: 500px;
-    border-bottom-left-radius: 100px;
   }
   nav .navlinks li {
     display: block;
@@ -379,9 +379,6 @@ nav .navlinks li a:hover {
     border-image-source: var(--gold-gradient);
     border-image-slice: 1;
     border-image-width: 1;
-    /* ensure the rounded corners of the border match the panel */
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;
     /* subtle glow for depth */
     box-shadow: 0 12px 26px rgba(0,0,0,0.12);
   }
