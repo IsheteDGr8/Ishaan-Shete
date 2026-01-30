@@ -36,7 +36,7 @@
                     <img src="assets/images/main_photo.jpg" alt="profile pic">
                 </div>
                 <div class="hero-text">
-                    <h5>Hi I'm <span class="input">Frontend Developer</span></h5>
+                    <h5>Hi I'm <span class="input"></span></h5>
                     <h1>Ishaan Shete</h1>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
@@ -71,10 +71,11 @@
         togglebtn.addEventListener("click", function() {
             this.classList.toggle("click");
             nav.classList.toggle("open");    
+            document.body.classList.toggle('menu-open');
         });
 
         var typed=new Typed(".input", {
-            strings: ["Frontend Developer", "UX Designer", "Web Developer"],
+            strings: ["Software Developer", "AI/ML Engineer", "Web Developer"],
             typeSpeed: 70,
             backSpeed: 55,
             loop: true
