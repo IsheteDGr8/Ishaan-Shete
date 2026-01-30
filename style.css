@@ -335,7 +335,9 @@ nav .navlinks li a:hover {
      /* make the panel taller while keeping a small top header offset */
      max-height: calc(100vh - 160px);
     /* refined gold gradient sidebar */
-    background: var(--gold-gradient);
+    background: var(--blue-1);
+    border-color: var(--gold-dark);
+    border-width: 100px;
     background-size: 100% 200%;
     z-index: 3;
     box-shadow: 5px 13px 30px rgba(0, 0, 0, 0.12);
@@ -372,6 +374,19 @@ nav .navlinks li a:hover {
   }
   nav .navlinks.open {
     right: 0;
+    /* thin gold-gradient border on top/left/bottom only; no right border */
+    border-top: 6px solid transparent;
+    border-left: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 0;
+    border-image-source: var(--gold-gradient);
+    border-image-slice: 1;
+    border-image-width: 6;
+    /* ensure the rounded corners of the border match the panel */
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    /* subtle glow for depth */
+    box-shadow: 0 12px 26px rgba(0,0,0,0.12);
   }
   /* When the menu is open we add a body class via JS to shift the photo left
      so the gold panel doesn't cover the image. Only apply on small screens. */
