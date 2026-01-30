@@ -274,9 +274,6 @@ nav .navlinks li a:hover {
 .hero-text .social a:hover i.fa-github {
   color: #171515;
 }
-.hero-text .social a:hover i.fa-gmail {
-  color: #7d1507;
-}
 .hero-text .social a:hover i.fa-phone {
   color: #157639;
 }
@@ -342,8 +339,8 @@ nav .navlinks li a:hover {
     z-index: 3;
     box-shadow: 5px 13px 30px rgba(0, 0, 0, 0.12);
     transition: 0.45s ease;
-     /* slightly reduce horizontal padding so links sit closer to the inner edge
-       and give the panel more vertical space */
+    /* slightly reduce horizontal padding so links sit closer to the inner edge
+    and give the panel more vertical space */
     padding: 36px 2rem;
     overflow-y: auto;
     display: flex;
@@ -352,7 +349,7 @@ nav .navlinks li a:hover {
     justify-content: flex-start; /* start content at top */
     gap: 2.25rem; /* spacing between links */
     /* smooth rounded outer shape */
-    border-top-left-radius: 100px;
+    border-top-left-radius: 500px;
     border-bottom-left-radius: 100px;
   }
   nav .navlinks li {
@@ -381,7 +378,7 @@ nav .navlinks li a:hover {
     border-right: 0;
     border-image-source: var(--gold-gradient);
     border-image-slice: 1;
-    border-image-width: 6;
+    border-image-width: 1;
     /* ensure the rounded corners of the border match the panel */
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
