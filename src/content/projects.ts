@@ -160,7 +160,7 @@ export const projects: Project[] = [
       { label: "Firebase", detail: "Real-time NoSQL game state" },
       { label: "Spectators", detail: "Live on every device" },
     ],
-    links: [],
+    links: [{ label: "Live app", href: "https://cricky-cricket-analysis.web.app/" }],
     featured: true,
   },
   {

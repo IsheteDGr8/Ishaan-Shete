@@ -33,4 +33,3 @@ The home figure is the range over three runs. The waterfall scene waits for load
 ## Known gaps
 
 - Canonical URLs use `NEXT_PUBLIC_SITE_URL`, which must be set in Vercel before the first production deploy.
-- Cricky has no public link yet.
