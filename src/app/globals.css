@@ -1,0 +1,405 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --canvas: #f6f5ef;
+  --surface: #ffffff;
+  --surface-2: #eceae1;
+  --line: #dfdcd0;
+  --ink: #14181a;
+  --ink-2: #454c51;
+  --ink-3: #62696e;
+  --accent: #0a7563;
+  --accent-soft: #d6eee6;
+  --accent-ink: #ffffff;
+  --grid-dot: rgb(20 24 26 / 0.09);
+
+  --scene-sky-1: #cfeee4;
+  --scene-sky-2: #f3f7ec;
+  --scene-sun: #ffe7a3;
+  --scene-bird: #3d5a50;
+  --scene-far: #b9dccd;
+  --scene-mid: #94c7b0;
+  --scene-forest-3: #5f9d7c;
+  --scene-forest-2: #2f7556;
+  --scene-forest-1: #1b4d3a;
+  --scene-rock: #8a9894;
+  --scene-rock-shade: #74837f;
+  --scene-rock-hi: #b7c3bf;
+  --scene-moss: #5d9a5b;
+  --scene-water-1: #e9fbf6;
+  --scene-water-2: #bfe9df;
+  --scene-foam: #ffffff;
+  --scene-pool: #9fd9ca;
+  --scene-river: #62b5a3;
+  --scene-mist: #ffffff;
+  --scene-fern: #3f8a4a;
+  --scene-firefly: transparent;
+  color-scheme: light;
+}
+
+.dark {
+  --canvas: #0d1012;
+  --surface: #14181b;
+  --surface-2: #1b2024;
+  --line: #2a3035;
+  --ink: #eceee9;
+  --ink-2: #b4bab7;
+  --ink-3: #8d9492;
+  --accent: #5ad4b5;
+  --accent-soft: #123129;
+  --accent-ink: #062019;
+  --grid-dot: rgb(236 238 233 / 0.07);
+
+  --scene-sky-1: #0b1d24;
+  --scene-sky-2: #143a37;
+  --scene-sun: #e9f1d8;
+  --scene-bird: transparent;
+  --scene-far: #1a3a38;
+  --scene-mid: #17332f;
+  --scene-forest-3: #12302a;
+  --scene-forest-2: #0e2620;
+  --scene-forest-1: #081a15;
+  --scene-rock: #2d3a39;
+  --scene-rock-shade: #253130;
+  --scene-rock-hi: #4a5b58;
+  --scene-moss: #1f4a34;
+  --scene-water-1: #d4f5ec;
+  --scene-water-2: #6fc7b3;
+  --scene-foam: #e8fff9;
+  --scene-pool: #2c6f64;
+  --scene-river: #173f39;
+  --scene-mist: #b7e8dc;
+  --scene-fern: #2b6a3c;
+  --scene-firefly: #f6e58d;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+
+  --text-hero: clamp(3.25rem, 9vw + 0.5rem, 9.5rem);
+  --text-hero--line-height: 0.92;
+  --text-title: clamp(2.25rem, 4vw + 0.75rem, 4.25rem);
+  --text-title--line-height: 1;
+  --text-lede: clamp(1.125rem, 0.6vw + 1rem, 1.375rem);
+  --text-lede--line-height: 1.55;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    background: var(--canvas);
+    color: var(--ink);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@utility shell {
+  width: 100%;
+  max-width: 1800px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 4.5rem);
+}
+
+@utility prose-width {
+  max-width: 68ch;
+}
+
+@utility dot-grid {
+  background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+@utility eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Controls that only work with JavaScript stay hidden without it. */
+.js-only {
+  display: none;
+}
+.js .js-only {
+  display: flex;
+}
+
+/* Theme toggle: both icons render, CSS picks one so it works before hydration. */
+.theme-icon-dark {
+  display: none;
+}
+.dark .theme-icon-dark {
+  display: block;
+}
+.dark .theme-icon-light {
+  display: none;
+}
+
+/* Reveals: content is only hidden once the pre-paint script has added .js. */
+@media (prefers-reduced-motion: no-preference) {
+  .js:not(.reveal-all) [data-reveal]:not([data-shown]) {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  [data-reveal] {
+    transition:
+      opacity 700ms var(--ease-out-soft),
+      transform 700ms var(--ease-out-soft);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+}
+
+/* Waterfall scene. Paused offscreen, static under reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .scene-fall {
+    animation: scene-fall 1.4s linear infinite;
+  }
+  .scene-flow {
+    animation: scene-flow 3.2s ease-in-out infinite;
+  }
+  .scene-ripple {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: scene-ripple 3.3s ease-out infinite;
+  }
+  .scene-mist {
+    animation: scene-mist 7s ease-in-out infinite alternate;
+  }
+  .scene-sway {
+    animation: scene-sway 5s ease-in-out infinite alternate;
+  }
+  .scene-birds {
+    animation: scene-birds 26s ease-in-out infinite alternate;
+  }
+  .scene-twinkle {
+    animation: scene-twinkle 2.8s ease-in-out infinite;
+  }
+  [data-paused="true"] .scene *,
+  [data-paused="true"] .scene {
+    animation-play-state: paused;
+  }
+}
+@keyframes scene-fall {
+  to {
+    stroke-dashoffset: -212;
+  }
+}
+@keyframes scene-flow {
+  0%,
+  100% {
+    transform: translateX(-10px);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateX(12px);
+    opacity: 0.9;
+  }
+}
+@keyframes scene-ripple {
+  from {
+    transform: scale(0.35);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@keyframes scene-mist {
+  from {
+    transform: translateX(-14px);
+    opacity: 0.7;
+  }
+  to {
+    transform: translateX(14px);
+    opacity: 1;
+  }
+}
+@keyframes scene-sway {
+  from {
+    transform: rotate(-3deg);
+  }
+  to {
+    transform: rotate(3.5deg);
+  }
+}
+@keyframes scene-birds {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(120px, -18px);
+  }
+}
+@keyframes scene-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Mobile menu: native dialog with an enter and exit transition. */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+.menu-panel {
+  transition:
+    translate 420ms var(--ease-out-soft),
+    opacity 300ms ease,
+    overlay 420ms allow-discrete,
+    display 420ms allow-discrete;
+  translate: 100% 0;
+  opacity: 0;
+}
+.menu-panel[open] {
+  translate: 0 0;
+  opacity: 1;
+}
+@starting-style {
+  .menu-panel[open] {
+    translate: 100% 0;
+    opacity: 0;
+  }
+}
+.menu-panel::backdrop {
+  background: rgb(8 20 16 / 0);
+  backdrop-filter: blur(0);
+  transition:
+    background 300ms ease,
+    backdrop-filter 300ms ease,
+    overlay 420ms allow-discrete,
+    display 420ms allow-discrete;
+}
+.menu-panel[open]::backdrop {
+  background: rgb(8 20 16 / 0.35);
+  backdrop-filter: blur(4px);
+}
+@starting-style {
+  .menu-panel[open]::backdrop {
+    background: rgb(8 20 16 / 0);
+    backdrop-filter: blur(0);
+  }
+}
+.menu-item {
+  opacity: 0;
+  translate: 28px 0;
+  transition:
+    opacity 400ms ease,
+    translate 500ms var(--ease-out-soft);
+  transition-delay: calc(120ms + var(--i) * 55ms);
+}
+.menu-panel[open] .menu-item {
+  opacity: 1;
+  translate: 0 0;
+}
+@starting-style {
+  .menu-panel[open] .menu-item {
+    opacity: 0;
+    translate: 28px 0;
+  }
+}
+.palette::backdrop {
+  background: rgb(8 20 16 / 0.35);
+  backdrop-filter: blur(4px);
+}
+.palette[open] {
+  animation: palette-in 260ms var(--ease-out-soft);
+}
+@keyframes palette-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .palette[open] {
+    animation: none;
+  }
+  .menu-panel,
+  .menu-panel::backdrop,
+  .menu-item {
+    transition: none;
+  }
+  .menu-item {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.status-dot {
+  position: relative;
+}
+.status-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--accent);
+  animation: status 2.4s ease-out infinite;
+}
+@keyframes status {
+  from {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .status-dot::after {
+    animation: none;
+    opacity: 0;
+  }
+}

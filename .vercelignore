@@ -1,0 +1,13 @@
+test-results
+playwright-report
+blob-report
+tests
+*.lighthouse.*
+lighthouse-report*
+*.png
+!public/**/*.png
+docs/CLAUDE.md
+docs/CLAUDE-portfolio-template.md
+docs/Shete_Ishaan_Resume.pdf
+docs/Ishaan Shete.jpg
+.env*
