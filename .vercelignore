@@ -6,6 +6,7 @@ tests
 lighthouse-report*
 *.png
 !public/**/*.png
+!src/app/*.png
 docs/CLAUDE.md
 docs/CLAUDE-portfolio-template.md
 docs/Shete_Ishaan_Resume.pdf
