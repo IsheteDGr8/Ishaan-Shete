@@ -11,3 +11,6 @@ docs/CLAUDE-portfolio-template.md
 docs/Shete_Ishaan_Resume.pdf
 docs/Ishaan Shete.jpg
 .env*
+/index.html
+/404.html
+/.nojekyll

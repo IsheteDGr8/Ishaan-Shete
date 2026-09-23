@@ -20,6 +20,8 @@ All three must be clean. Never run `npm audit fix --force`.
 
 The project is `ishaan-shete` and is connected to the GitHub repo, so every push to `main` deploys to production and every other branch gets a preview. Run the checks above before pushing to `main`.
 
+GitHub Pages still serves the repo root at `isheteDGr8.github.io/Ishaan-Shete`. The root `index.html` and `404.html` only redirect there to the Vercel site, and `.nojekyll` stops Pages from running Jekyll over the repo. They are excluded from Vercel uploads.
+
 ## Preview
 
 ```bash
