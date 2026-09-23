@@ -42,7 +42,7 @@ Both fonts load through `next/font` with `display: swap`.
 - Reveals: elements with `data-reveal` fade up once when they enter the viewport. They are hidden only when `<html>` has `.js`, fall back to visible after 2.5s if the observer never mounts, and never hide under reduced motion.
 - The waterfall scene animates water, ripples, mist, ferns, birds and fireflies (dark theme). It starts after the page has loaded and gone idle, pauses offscreen through `PauseOffscreen`, and is static under `prefers-reduced-motion`.
 - The mobile menu ends in `PoolScene`: a plunge pool with basalt columns, a mossy boulder and their reflections. It fills the space left under the menu, anchored to the bottom, and its top fades into the panel, so short screens crop only sky. Below 760px of height the menu tightens its spacing to keep the rocks in view.
-- The mobile menu and command palette are native `<dialog>` elements with CSS enter transitions. The palette has no header button; Ctrl/⌘ K opens it.
+- The mobile menu and command palette are native `<dialog>` elements with CSS enter transitions. The palette opens from the header Search button (md and up) or Ctrl/⌘ K.
 - The site icon (`src/app/icon.svg`) is the same world in miniature: a waterfall between two cliffs into a pool with mossy rocks. `favicon.ico` and `apple-icon.png` are rendered from it.
 
 ## Components

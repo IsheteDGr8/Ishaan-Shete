@@ -51,9 +51,10 @@ export const projects: Project[] = [
     summary:
       "A compliance dashboard that checks a small-business permit application against 5 city agencies at once, cites the municipal law behind each rule and flags conflicts between agencies.",
     tags: ["AI", "Full-stack"],
-    stack: ["React", "Tailwind CSS", "Node.js", "Express", "Supabase", "Claude Sonnet 4"],
+    stack: ["React", "Tailwind CSS", "Node.js", "Express", "Supabase", "Gemini API"],
     metrics: [
-      { value: "14 wk → <30 s", label: "applicant research time" },
+      { value: "14 wk → <30 s", label: "manual research vs processing" },
+      { value: "~14 min", label: "end to end, including review and forms" },
       { value: "5", label: "city agencies checked in parallel" },
     ],
     problem:
@@ -64,13 +65,14 @@ export const projects: Project[] = [
       "A Node and Express gateway that fans each application out to 5 agency agents in parallel.",
       "Conflict detection across agencies and a generated checklist citing municipal law.",
       "Supabase persistence for applications and results.",
+      "Agents first built on Claude Sonnet 4, then moved to the free Gemini API to keep running costs at zero.",
     ],
     hardPart:
       "Agencies disagree. The system had to reason about each department independently, then find where their requirements collide before producing one checklist.",
     whyItMatters:
       "Applicant research that typically takes weeks becomes a single reviewable report with sources.",
     evaluation:
-      "Measured on research time for an applicant: about 14 weeks by hand against under 30 seconds with PermitPilot.",
+      "About 14 weeks of research by hand against under 30 seconds of processing. Reviewing the roadmap and filling in the documents brings the whole process to about 14 minutes.",
     architecture: [
       { label: "Intake form", detail: "Business details and location" },
       { label: "Orchestrator", detail: "Node and Express gateway" },

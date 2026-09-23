@@ -54,10 +54,11 @@ test("command palette finds a project and navigates to it", async ({ page }) => 
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(target.title);
   await expect(dialog).toBeHidden();
 
-  await page.keyboard.press("Control+k");
+  await page.getByRole("button", { name: "Search the site" }).click();
   await expect(dialog).toBeVisible();
   await page.keyboard.press("Escape");
   await expect(dialog).toBeHidden();
+  await expect(page.getByRole("button", { name: "Search the site" })).toBeFocused();
 });
 
 test("work filters show the projects for each tag", async ({ page }) => {
