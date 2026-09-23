@@ -16,7 +16,9 @@ All three must be clean. Never run `npm audit fix --force`.
 
 1. `npm i -g vercel`, then `vercel login`.
 2. `vercel link` from the repo root. It writes `.vercel/` and may write an OIDC token to `.env.local`; both are gitignored. Confirm with `git check-ignore .vercel .env.local`.
-3. In the Vercel project settings, set `NEXT_PUBLIC_SITE_URL` to the production origin (for example `https://ishaanshete.com`), for Production and Preview.
+3. Set `NEXT_PUBLIC_SITE_URL` to the production origin for Production and Preview: `vercel env add NEXT_PUBLIC_SITE_URL production --value https://ishaan-shete.vercel.app`.
+
+The project is `ishaan-shete` and is connected to the GitHub repo, so every push to `main` deploys to production and every other branch gets a preview. Run the checks above before pushing to `main`.
 
 ## Preview
 

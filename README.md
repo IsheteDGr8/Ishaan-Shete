@@ -1,6 +1,6 @@
 # Ishaan Shete · Portfolio
 
-My personal site: who I am, what I've built and how to reach me. Every page is statically prerendered with Next.js and deployed on Vercel.
+My personal site: who I am, what I've built and how to reach me. Live at [ishaan-shete.vercel.app](https://ishaan-shete.vercel.app). Every page is statically prerendered with Next.js and deployed on Vercel.
 
 ## Stack
 

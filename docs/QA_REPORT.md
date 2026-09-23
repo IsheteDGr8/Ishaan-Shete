@@ -26,10 +26,18 @@ Expected values (routes, project titles, tags, résumé file name) come from `sr
 
 The home figure is the range over three runs. The waterfall scene waits for load and idle before animating, which took home from 86 to the 90s.
 
+## Lighthouse (live, mobile)
+
+| Route | Performance | Accessibility | Best Practices | SEO | LCP | CLS |
+|---|---|---|---|---|---|---|
+| `https://ishaan-shete.vercel.app/` | 95 | 100 | 100 | 100 | 1.9 s | 0 |
+
+After the first production deploy, all 14 public URLs returned 200, unknown paths returned 404, and the security headers and missing source maps matched the local suite.
+
 ## Dependencies
 
 `npm audit --omit=dev`: 0 vulnerabilities.
 
 ## Known gaps
 
-- Canonical URLs use `NEXT_PUBLIC_SITE_URL`, which must be set in Vercel before the first production deploy.
+None open.
