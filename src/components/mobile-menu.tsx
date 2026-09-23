@@ -8,7 +8,7 @@ import { navigation, site } from "@/content/site";
 import { ExternalLink } from "./external-link";
 import { GitHubIcon, LinkedInIcon } from "./icons";
 import { ThemeToggle } from "./theme-toggle";
-import { MenuLandscape } from "./menu-landscape";
+import { PoolScene } from "./pool-scene";
 
 const links = [{ label: "Home", href: "/" }, ...navigation];
 
@@ -74,7 +74,7 @@ export function MobileMenu() {
             </button>
           </div>
 
-          <nav aria-label="Mobile" className="mt-5 px-4">
+          <nav aria-label="Mobile" className="mt-5 px-4 [@media(max-height:760px)]:mt-3">
             <ul>
               {links.map((item, i) => {
                 const active = isActive(item.href);
@@ -84,12 +84,12 @@ export function MobileMenu() {
                       href={item.href}
                       onClick={close}
                       aria-current={active ? "page" : undefined}
-                      className="group flex items-center gap-4 rounded-2xl px-3 py-1.5 transition-colors hover:bg-surface-2"
+                      className="group flex items-center gap-4 rounded-2xl px-3 py-1.5 transition-colors hover:bg-surface-2 [@media(max-height:760px)]:py-1"
                     >
                       <span className="w-7 text-xs font-medium tabular-nums text-ink-3 group-aria-[current=page]:text-accent">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="font-display text-[1.85rem] font-semibold leading-tight tracking-tight transition-[color,translate] duration-300 group-hover:translate-x-1 group-hover:text-accent group-aria-[current=page]:text-accent">
+                      <span className="font-display text-[1.85rem] font-semibold leading-tight [@media(max-height:760px)]:text-[1.6rem] tracking-tight transition-[color,translate] duration-300 group-hover:translate-x-1 group-hover:text-accent group-aria-[current=page]:text-accent">
                         {item.label}
                       </span>
                       <ArrowRight
@@ -106,7 +106,7 @@ export function MobileMenu() {
           <ul className="mt-5 grid grid-cols-2 gap-2.5 px-6" aria-label="Quick links">
             {tiles.map((t, i) => {
               const cls =
-                "flex h-full items-center gap-3 rounded-2xl border border-line bg-surface px-4 py-3.5 text-sm font-medium transition-[transform,border-color,background-color] duration-300 hover:-translate-y-0.5 hover:border-accent hover:bg-accent-soft";
+                "flex h-full items-center gap-3 rounded-2xl border border-line bg-surface px-4 py-3.5 text-sm font-medium [@media(max-height:760px)]:py-2.5 transition-[transform,border-color,background-color] duration-300 hover:-translate-y-0.5 hover:border-accent hover:bg-accent-soft";
               const inner = (
                 <>
                   <span className="text-accent">{t.icon}</span>
@@ -134,11 +134,13 @@ export function MobileMenu() {
             <ThemeToggle />
           </div>
 
-          <div className="mt-auto pt-5">
+          <div className="mt-auto flex flex-1 flex-col justify-end pt-5">
             <p className="px-6 pb-2 text-xs text-ink-3">
               {site.name} · {site.location}
             </p>
-            <MenuLandscape />
+            <div className="relative max-h-[230px] min-h-32 flex-1">
+              <PoolScene className="absolute inset-0 size-full" />
+            </div>
           </div>
         </div>
       </dialog>

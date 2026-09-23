@@ -27,7 +27,7 @@ export const capabilityGroups: CapabilityGroup[] = [
     title: "Frontend",
     summary: "Interfaces people use on their phones and at their desks.",
     items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Angular"],
-    projectSlugs: ["hr-copilot", "permitpilot", "cricky"],
+    projectSlugs: ["hr-copilot", "permitpilot", "cricky", "tip-of-the-iceberg"],
   },
   {
     id: "systems",

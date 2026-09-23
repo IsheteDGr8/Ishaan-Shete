@@ -164,6 +164,46 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "tip-of-the-iceberg",
+    title: "Tip of the Iceberg",
+    context: "CSS 481 · Team of 4",
+    year: "2025",
+    summary:
+      "A climate-education web app about melting ice caps. I built its browser game, Save the Seal, where every coin a rolling seal collects unlocks a real climate fact.",
+    tags: ["Full-stack"],
+    stack: ["JavaScript", "React", "HTML5 Canvas", "D3", "Express", "Sass"],
+    metrics: [
+      { value: "10", label: "climate facts to win a full run" },
+      { value: "3", label: "input methods: keys, mouse, touch" },
+    ],
+    problem:
+      "Charts of ice loss are easy to scroll past. The team wanted the same data to land as something people play, not just read.",
+    role: "Built the Save the Seal game: gameplay, physics, screens and the move from one file to separate modules.",
+    built: [
+      "A canvas game loop with jump physics over rolling terrain generated from layered sine waves.",
+      "Coins that unlock climate facts, built from the site's own dataset: the latest value for each series and its change since the first record.",
+      "Melting ice, win, loss, start and fact screens, and a rolling animation for the seal.",
+      "A short demo mode: 20 metres and 2 facts instead of 150 metres and 10.",
+      "Keyboard, mouse and touch controls, with the canvas scaled for high-density screens.",
+    ],
+    hardPart:
+      "Making physics feel smooth on any screen. The canvas resizes to the window and the pixel density, so jump strength, scroll speed and the hold button all have to stay consistent as it does.",
+    whyItMatters:
+      "It turns the site's data into something to play. Each fact is earned, and it comes from the same data the rest of the site charts.",
+    evaluation: "Live on the team's site, with a full mode and a demo mode.",
+    architecture: [
+      { label: "Climate dataset", detail: "Shared with the site's charts" },
+      { label: "Fact builder", detail: "Latest value and change per series" },
+      { label: "Game loop", detail: "Terrain, physics, coins, melt" },
+      { label: "Canvas", detail: "Scaled to the screen's pixel density" },
+    ],
+    links: [
+      { label: "Live site", href: "https://tip-of-the-iceberg.vercel.app/" },
+      { label: "Source on GitHub", href: "https://github.com/E11aW/tip-of-the-iceberg" },
+    ],
+    featured: false,
+  },
+  {
     slug: "road-sign-detection",
     title: "Road sign detection",
     context: "CSS 487 · Built with Manish",

@@ -42,7 +42,7 @@ function treeLine(seed: number, from: number, to: number, baseAt: (x: number) =>
   return trees;
 }
 
-function frond(bx: number, by: number, len: number, lean: number, leaflets = 11) {
+export function frond(bx: number, by: number, len: number, lean: number, leaflets = 11) {
   const cx = bx + lean * 0.35;
   const cy = by - len * 0.7;
   const ex = bx + lean;

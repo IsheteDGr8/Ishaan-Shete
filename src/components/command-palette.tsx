@@ -24,14 +24,6 @@ export function CommandPalette() {
   const results = commands.filter((c) => matches(c, query));
   const current = results[Math.min(active, results.length - 1)];
 
-  function open() {
-    setQuery("");
-    setActive(0);
-    setStatus("");
-    dialogRef.current?.showModal();
-    inputRef.current?.focus();
-  }
-
   function close() {
     dialogRef.current?.close();
   }
@@ -106,91 +98,77 @@ export function CommandPalette() {
   const optionId = (c: Command) => `${listId}-${c.id}`;
 
   return (
-    <>
-      <button
-        type="button"
-        onClick={open}
-        className="hidden items-center gap-2 rounded-full border border-line bg-surface py-1.5 pl-3 pr-1.5 text-sm text-ink-2 transition-colors hover:border-ink-3 hover:text-ink md:inline-flex"
-        aria-haspopup="dialog"
-        aria-label="Search the site"
-      >
-        <Search className="size-4" aria-hidden="true" />
-        <span>Search</span>
-        <kbd className="rounded-md border border-line bg-canvas px-1.5 py-0.5 font-body text-xs text-ink-3">Ctrl K</kbd>
-      </button>
+    <dialog
+      ref={dialogRef}
+      aria-label="Command palette"
+      className="palette mx-auto mt-[12vh] w-[min(640px,calc(100%-2rem))] overflow-hidden rounded-[1.5rem] border border-line bg-surface p-0 text-ink shadow-[0_40px_80px_-24px_rgb(0_0_0/0.35)]"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) close();
+      }}
+    >
+      <div className="flex items-center gap-3 border-b border-line px-5">
+        <Search className="size-5 shrink-0 text-ink-3" aria-hidden="true" />
+        <input
+          ref={inputRef}
+          type="text"
+          role="combobox"
+          aria-expanded="true"
+          aria-controls={listId}
+          aria-activedescendant={current ? optionId(current) : undefined}
+          aria-autocomplete="list"
+          aria-label="Search pages, projects and actions"
+          placeholder="Search pages, projects, actions…"
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            setActive(0);
+          }}
+          onKeyDown={onInputKey}
+          className="h-14 w-full bg-transparent text-base text-ink outline-none placeholder:text-ink-3"
+        />
+        <kbd className="rounded-md border border-line px-1.5 py-0.5 text-xs text-ink-3">Esc</kbd>
+      </div>
 
-      <dialog
-        ref={dialogRef}
-        aria-label="Command palette"
-        className="palette mx-auto mt-[12vh] w-[min(640px,calc(100%-2rem))] overflow-hidden rounded-[1.5rem] border border-line bg-surface p-0 text-ink shadow-[0_40px_80px_-24px_rgb(0_0_0/0.35)]"
-        onClick={(e) => {
-          if (e.target === e.currentTarget) close();
-        }}
-      >
-        <div className="flex items-center gap-3 border-b border-line px-5">
-          <Search className="size-5 shrink-0 text-ink-3" aria-hidden="true" />
-          <input
-            ref={inputRef}
-            type="text"
-            role="combobox"
-            aria-expanded="true"
-            aria-controls={listId}
-            aria-activedescendant={current ? optionId(current) : undefined}
-            aria-autocomplete="list"
-            aria-label="Search pages, projects and actions"
-            placeholder="Search pages, projects, actions…"
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value);
-              setActive(0);
-            }}
-            onKeyDown={onInputKey}
-            className="h-14 w-full bg-transparent text-base text-ink outline-none placeholder:text-ink-3"
-          />
-          <kbd className="rounded-md border border-line px-1.5 py-0.5 text-xs text-ink-3">Esc</kbd>
-        </div>
-
-        <ul id={listId} role="listbox" aria-label="Results" className="max-h-[min(60vh,420px)] overflow-y-auto p-2">
-          {results.length === 0 ? (
-            <li role="presentation" className="px-4 py-8 text-center text-sm text-ink-2">
-              Nothing matches “{query}”.
-            </li>
-          ) : (
-            results.map((c, i) => {
-              const selected = c === current;
-              const groupStart = i === 0 || results[i - 1].group !== c.group;
-              return (
-                <li key={c.id} role="presentation">
-                  {groupStart ? (
-                    <p role="presentation" className="eyebrow px-3 pb-1.5 pt-3">
-                      {c.group}
-                    </p>
+      <ul id={listId} role="listbox" aria-label="Results" className="max-h-[min(60vh,420px)] overflow-y-auto p-2">
+        {results.length === 0 ? (
+          <li role="presentation" className="px-4 py-8 text-center text-sm text-ink-2">
+            Nothing matches “{query}”.
+          </li>
+        ) : (
+          results.map((c, i) => {
+            const selected = c === current;
+            const groupStart = i === 0 || results[i - 1].group !== c.group;
+            return (
+              <li key={c.id} role="presentation">
+                {groupStart ? (
+                  <p role="presentation" className="eyebrow px-3 pb-1.5 pt-3">
+                    {c.group}
+                  </p>
+                ) : null}
+                <div
+                  id={optionId(c)}
+                  role="option"
+                  aria-selected={selected}
+                  onMouseMove={() => setActive(i)}
+                  onClick={() => void run(c)}
+                  className="flex cursor-pointer items-center justify-between gap-3 rounded-xl px-3 py-2.5 text-[0.9375rem] aria-selected:bg-accent-soft aria-selected:text-ink"
+                >
+                  <span>{c.label}</span>
+                  {c.kind === "external" ? (
+                    <ArrowUpRight className="size-4 text-ink-3" aria-hidden="true" />
+                  ) : selected ? (
+                    <CornerDownLeft className="size-4 text-accent" aria-hidden="true" />
                   ) : null}
-                  <div
-                    id={optionId(c)}
-                    role="option"
-                    aria-selected={selected}
-                    onMouseMove={() => setActive(i)}
-                    onClick={() => void run(c)}
-                    className="flex cursor-pointer items-center justify-between gap-3 rounded-xl px-3 py-2.5 text-[0.9375rem] aria-selected:bg-accent-soft aria-selected:text-ink"
-                  >
-                    <span>{c.label}</span>
-                    {c.kind === "external" ? (
-                      <ArrowUpRight className="size-4 text-ink-3" aria-hidden="true" />
-                    ) : selected ? (
-                      <CornerDownLeft className="size-4 text-accent" aria-hidden="true" />
-                    ) : null}
-                  </div>
-                </li>
-              );
-            })
-          )}
-        </ul>
-        <p className="sr-only" aria-live="polite">
-          {status || `${results.length} results`}
-        </p>
-        {status ? <p className="border-t border-line px-5 py-3 text-sm text-accent">{status}</p> : null}
-      </dialog>
-    </>
+                </div>
+              </li>
+            );
+          })
+        )}
+      </ul>
+      <p className="sr-only" aria-live="polite">
+        {status || `${results.length} results`}
+      </p>
+      {status ? <p className="border-t border-line px-5 py-3 text-sm text-accent">{status}</p> : null}
+    </dialog>
   );
 }
