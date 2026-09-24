@@ -10,7 +10,7 @@ export const site = {
   description:
     "I'm Ishaan Shete, a software engineer in Seattle. I build AI and cloud systems end to end: agentic tools, APIs, data stores and the interfaces people use.",
   intro: [
-    "I build AI systems and get them in front of real users. Most recently I led backend engineering on an agentic HR copilot at Quadrant Technologies, which placed 1st of 9 teams and was selected for production rollout.",
+    "I build AI systems and get them in front of real users. I lead backend engineering on an agentic HR copilot at Quadrant Technologies, which placed 1st of 9 teams and was selected for production rollout.",
     "I work across the stack: Python and FastAPI services, TypeScript and Next.js interfaces, and Azure or AWS underneath. I graduated from the University of Washington in Computer Science and Software Engineering in June 2026.",
   ],
   availability: {
@@ -75,7 +75,7 @@ export const pages = {
     lede: "Software engineer in Seattle, working across AI, cloud and full-stack systems.",
     body: [
       "I graduated from the University of Washington in June 2026 with a B.S. in Computer Science and Software Engineering and a 3.74 GPA.",
-      "Most recently I was an AI & Cloud intern at Quadrant Technologies, working on agentic AI, cloud infrastructure and Azure Cosmos DB. Before that I led development of Cricky for the university cricket club, and worked on cooling for a Mars rover arm with TrickFire Robotics.",
+      "I'm an AI and cloud intern at Quadrant Technologies, working on agentic AI, Azure Cosmos DB and strict PII redaction. I was President of the UW Cricket Club, where I built Cricky and ran 11 events for 1,200+ attendees, and I worked on cooling for a Mars rover arm with TrickFire Robotics.",
       "I want to keep deepening my skills in software engineering and AI, and to build things that make a real difference for the people who use them. I'm looking for full-time roles as a Forward Deployed Engineer, AI & Cloud Engineer or Software Engineer.",
       "Outside of code, I've played tabla for 18 years. Taal AI grew out of that.",
     ],

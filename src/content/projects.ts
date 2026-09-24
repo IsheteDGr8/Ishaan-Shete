@@ -22,7 +22,7 @@ export const projects: Project[] = [
       "Résumé screening, HR ticketing and regulatory compliance tracking needed automating for an organisation of 400+ employees, without letting an AI agent act on anything a person had not approved.",
     role: "I led backend engineering on a team of interns.",
     built: [
-      "A Python FastAPI backend connected to a Next.js frontend and Azure Cosmos DB.",
+      "A Python FastAPI backend connected to a Next.js frontend and Azure Cosmos DB, with strict PII redaction on résumé, ticket and compliance data.",
       "A tool-calling architecture exposing 149 capabilities across 11 MCP integrations.",
       "Human-in-the-loop guardrails so the agent proposes and a person approves.",
       "Data flow and availability work using OpenHands, sized for 400+ employees.",
@@ -132,7 +132,7 @@ export const projects: Project[] = [
   {
     slug: "cricky",
     title: "Cricky",
-    context: "Cricket Club UWB · Lead developer",
+    context: "UW Cricket Club · President",
     year: "2026",
     summary:
       "A mobile-first cricket scoring and tournament app for the university cricket club, syncing every ball across devices in real time.",
@@ -145,7 +145,7 @@ export const projects: Project[] = [
     ],
     problem:
       "The club needed one place to score matches ball by ball, run tournaments and keep player statistics, visible live on everyone's phone.",
-    role: "Lead developer.",
+    role: "President of the club, and lead developer of the app.",
     built: [
       "A mobile-first web app for scorers and spectators.",
       "A Firebase NoSQL backend that syncs game state across devices with sub-second latency.",
